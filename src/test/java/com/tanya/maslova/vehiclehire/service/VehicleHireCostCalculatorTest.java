@@ -42,4 +42,17 @@ public class VehicleHireCostCalculatorTest {
            vehicleHireCostCalculator.calculate(carCategoryList, null, null);
        });
     }
+
+    @Test
+    void givenCarListAndHirePeriodProvided_whenCalculateHireCost_thenReturnCostOfHire() {
+        //Given
+        List<CarCategory> listOfDifferentCars = Arrays.asList(CarCategory.values());
+        LocalDate dateFrom = LocalDate.parse("2020-09-17");
+        LocalDate dateTo = LocalDate.parse("2020-09-20");
+        //When
+        int actualResult = vehicleHireCostCalculator.calculate(listOfDifferentCars, dateFrom, dateTo);
+        //Then
+        int expectedResult = 330;
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
 }

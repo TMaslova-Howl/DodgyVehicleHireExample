@@ -33,4 +33,11 @@ public class VehicleHireController {
     public int calculateHireCost(@RequestBody HiredCarsDto hiredCars){
         return vehicleHireService.calculateHireCost(hiredCars.getCarCategories(),hiredCars.getDateFrom(), hiredCars.getDateTo());
     }
+
+    @CrossOrigin
+    @GetMapping("/finalCost")
+    public int getFinalCost(@RequestBody HiredCarsDto hiredCars){
+        return vehicleHireService.getHireCostWithAdminFees(hiredCars.getCarCategories(),hiredCars.getDateFrom(), hiredCars.getDateTo());
+    }
+
 }
